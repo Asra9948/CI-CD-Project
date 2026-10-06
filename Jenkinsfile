@@ -9,6 +9,7 @@ pipeline {
         }
      
 
+
         stage('Terraform Init') {
             steps {
                 dir('terraform') {
