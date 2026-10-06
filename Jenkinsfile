@@ -15,6 +15,16 @@ pipeline {
                 }
             }
         }
+        
+        stage('SonarQube Analysis') {
+            steps {
+                dir('application/webapp') {
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'mvn sonar:sonar -Dsonar.projectKey=CI-CD-Project'
+                    }
+                }
+            }
+        }
 
         stage('Terraform Init') {
             steps {
