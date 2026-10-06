@@ -20,7 +20,7 @@ pipeline {
             steps {
                 dir('application/webapp') {
                     withSonarQubeEnv('SonarQube') {
-                        sh 'mvn sonar:sonar -Dsonar.projectKey=CI-CD-Project'
+                       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=CI-CD-Project'
                     }
                 }
             }
